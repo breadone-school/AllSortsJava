@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.util.Random;
 
+import org.omg.CORBA.Current;
+
 public class App {
 
     public static int GenerateRandom(int bound) {
@@ -76,8 +78,8 @@ public class App {
         String rString = "";
         int chr;
 
-            for (int j = 0; j < onechr.nextInt(10); j++) {
-                chr = onechr.nextInt(26) + 96;
+            for (int j = 0; j < onechr.nextInt(9) + 1; j++) {
+                chr = onechr.nextInt(26) + 97;
                 rString += (char) chr;
             }
 
@@ -86,15 +88,48 @@ public class App {
 
 
     public static void SearchStr() {
-        String StrArr[] = new String[20];
+        String StrArr[] = new String[20], TempString;
+        int CurrentChar, NextChar;
+        boolean Sorted = true;
 
         for (int i = 0; i < StrArr.length; i++) {
             StrArr[i] = randomString();
-            //System.out.println(StrArr[i]);
         }
 
+        //Arrays.sort(StrArr);
+
+        System.out.println("UNSORTED");
+        for (int i = 0; i < StrArr.length; i++) {
+            System.out.print(StrArr[i] +  " ");
+        }
+
+
+        do {
+            Sorted = true;
+
+            for (int i = 0; i < StrArr.length - 1; i++) {
+                CurrentChar = (int) StrArr[i].charAt(0);
+                NextChar = (int) StrArr[i + 1].charAt(0);
         
+                if (CurrentChar > NextChar) {
+                    Sorted = false;
+                    TempString = StrArr[i];
+                    StrArr[i] = StrArr[i + 1];
+                    StrArr[i + 1] = TempString;
+                } else if (CurrentChar < NextChar) {
+                    //epic
+                } else if (CurrentChar == NextChar) {
+                    //also epic but idk    
+                }
+            }           
+        } while (Sorted == false);
+
+
+        System.out.println();
+        System.out.println("SORTED");
+        for (int i = 0; i < StrArr.length; i++) {
+            System.out.print(StrArr[i] +  " ");
+        }
 
     }
-
 }
