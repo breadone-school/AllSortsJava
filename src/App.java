@@ -20,7 +20,7 @@ public class App {
         //BinarySearch(array);
 
 
-        randomString();
+        SearchStr();
     }
 
     public static void BinarySearch(int[] array) throws IndexOutOfBoundsException{
@@ -71,20 +71,30 @@ public class App {
     }
 
 
-    public static void randomString() {
-        Random one = new Random();
+    public static String randomString() {
+        Random onechr = new Random();
         String rString = "";
         int chr;
 
-            for (int j = 0; j < one.nextInt(10); i++) {
-                chr = one.nextInt(26) + 96;
+            for (int j = 0; j < onechr.nextInt(10); j++) {
+                chr = onechr.nextInt(26) + 96;
                 rString += (char) chr;
             }
-            System.out.println(rString);
 
-
-
+        return rString;    
     }
 
+
+    public static void SearchStr() {
+        String StrArr[] = new String[20];
+
+        for (int i = 0; i < StrArr.length; i++) {
+            StrArr[i] = randomString();
+            //System.out.println(StrArr[i]);
+        }
+
+        
+
+    }
 
 }
