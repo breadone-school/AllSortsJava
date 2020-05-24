@@ -1,8 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
 
-import org.omg.CORBA.Current;
-
 public class App {
 
     public static int GenerateRandom(int bound) {
@@ -13,16 +11,33 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        int[] array = new int[20];
+        int select;
+        int[] array = new int[20]; 
 
-        for (int i = 0; i < array.length; i++) {
-            array[i]=GenerateRandom(50);
+         System.out.print("what task: ");
+         select = Integer.parseInt(System.console().readLine());
+
+         switch (select) {
+             case 1:
+                 System.out.println("generate random: ");       
+                 for (int i = 0; i < array.length; i++) {
+                     array[i]=GenerateRandom(50);
+                  }
+                 break;
+
+            case 2:
+                  BinarySearch(array);
+            case 3:
+                SearchStr();
+            case 4:
+                  stacksonstacksonstacksonstacks();
+            case 5: 
+         
+             default:
+                 break;
          }
 
-        //BinarySearch(array);
 
-
-        SearchStr();
     }
 
     public static void BinarySearch(int[] array) throws IndexOutOfBoundsException{
@@ -59,19 +74,6 @@ public class App {
             System.out.println("no");
         }
     }
-
-
-    public static void IncredibleSort(int[] array){
-        String[] ok = new String[20];
-
-        Arrays.sort(array);
-
-        for (int i = 0; i < array.length; i++) {
-            
-        }
-
-    }
-
 
     public static String randomString() {
         Random onechr = new Random();
@@ -130,6 +132,19 @@ public class App {
         for (int i = 0; i < StrArr.length; i++) {
             System.out.print(StrArr[i] +  " ");
         }
+    }
+
+    public static void stacksonstacksonstacksonstacks() {
+        System.out.println("stacks are fucking stupid ngl");
+
+
+
+
 
     }
+
+
+
 }
+
+
